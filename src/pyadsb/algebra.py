@@ -15,3 +15,6 @@ class BinaryPolynomial:
 
     def __add__(self, other: 'BinaryPolynomial') -> 'BinaryPolynomial':
         return BinaryPolynomial([x + y for x, y in zip_longest(self._coefficients, other._coefficients, fillvalue=0)])
+
+    def __sub__(self, other: 'BinaryPolynomial') -> 'BinaryPolynomial':
+        return self + other
