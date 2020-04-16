@@ -18,3 +18,7 @@ class BinaryPolynomial:
 
     def __sub__(self, other: 'BinaryPolynomial') -> 'BinaryPolynomial':
         return self + other
+
+    @property
+    def degree(self) -> int:
+        return len(self._coefficients) - 1
