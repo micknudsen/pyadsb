@@ -1,5 +1,5 @@
 from itertools import zip_longest
-from typing import List
+from typing import List, Tuple
 
 
 class BinaryPolynomial:
@@ -29,3 +29,12 @@ class BinaryPolynomial:
             for j, y in enumerate(other._coefficients):
                 product[i + j] += x * y
         return BinaryPolynomial(coefficients=product)
+
+    def __divmod__(self, other: 'BinaryPolynomial') -> Tuple['BinaryPolynomial', 'BinaryPolynomial']:
+        zero = BinaryPolynomial(coefficients=[0])
+        q, r = zero, self
+        while r != zero and r.degree >= other.degree:
+            # The leading coefficient of a non-zero polynomial over Z/2Z is always 1.
+            t = BinaryPolynomial(coefficients=[0] * (r.degree - other.degree) + [1])
+            q, r = q + t, r - (t * other)
+        return q, r
