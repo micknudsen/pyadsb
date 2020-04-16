@@ -27,7 +27,7 @@ class TestBinaryPolynomial(unittest.TestCase):
         self.assertEqual(self.f * self.g, BinaryPolynomial(coefficients=[0, 1, 1, 1, 0, 1]))
 
     def test_division_with_remainder(self):
-        q, r = divmod(self.f, BinaryPolynomial(coefficients=[1, 1]))
+        q, r = divmod(self.g, BinaryPolynomial(coefficients=[1, 1]))
         self.assertEqual(q, BinaryPolynomial(coefficients=[0, 0, 1]))
         self.assertEqual(r, BinaryPolynomial(coefficients=[1]))
 
