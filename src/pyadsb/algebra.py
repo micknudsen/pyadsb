@@ -14,7 +14,9 @@ class BinaryPolynomial:
     def degree(self) -> int:
         return len(self._coefficients) - 1
 
-    def __eq__(self, other: 'BinaryPolynomial') -> bool:
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, BinaryPolynomial):
+            return NotImplemented
         return self._coefficients == other._coefficients
 
     def __add__(self, other: 'BinaryPolynomial') -> 'BinaryPolynomial':
