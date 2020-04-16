@@ -1,6 +1,10 @@
+from itertools import zip_longest
+from typing import List
+
+
 class BinaryPolynomial:
 
-    def __init__(self, coefficients) -> None:
+    def __init__(self, coefficients: List[int]) -> None:
         reduced_coefficients = [coefficient % 2 for coefficient in coefficients]
         while reduced_coefficients and reduced_coefficients[-1] == 0:
             reduced_coefficients.pop(-1)
@@ -8,3 +12,6 @@ class BinaryPolynomial:
 
     def __eq__(self, other: 'BinaryPolynomial') -> bool:
         return self._coefficients == other._coefficients
+
+    def __add__(self, other: 'BinaryPolynomial') -> 'BinaryPolynomial':
+        return BinaryPolynomial([x + y for x, y in zip_longest(self._coefficients, other._coefficients, fillvalue=0)])
