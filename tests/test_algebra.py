@@ -32,3 +32,7 @@ class TestPolynomial(unittest.TestCase):
     def test_degree(self):
         self.assertEqual(self.f.degree, 2)
         self.assertEqual(self.g.degree, 3)
+
+    def test_degree_extreme_cases(self):
+        self.assertEqual(Polynomial([1]).degree, 0)
+        self.assertEqual(Polynomial([0]).degree, -1)

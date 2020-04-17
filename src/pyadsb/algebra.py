@@ -12,6 +12,8 @@ class Polynomial:
 
     @property
     def degree(self) -> int:
+        if len(self._coefficients) == 1:
+            return -1 if self._coefficients[0] == 0 else 0
         return len(self._coefficients) - 1
 
     def __eq__(self, other: object) -> bool:
