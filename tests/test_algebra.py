@@ -9,6 +9,11 @@ class TestPolynomial(unittest.TestCase):
         self.f = Polynomial([0, 1, 1])
         self.g = Polynomial([1, 0, 1, 1])
 
+    def test_equality(self):
+        self.assertEqual(self.f, Polynomial([0, 1, 1]))
+        self.assertNotEqual(self.f, self.g)
+        self.assertNotEqual(self.f, 'X + X^2')
+
     def test_reduce_coefficients_modulo_two(self):
         self.assertEqual(Polynomial([0, 1, 2, 3]), Polynomial([0, 1, 0, 1]))
 
