@@ -24,9 +24,6 @@ class Polynomial:
     def __add__(self, other: 'Polynomial') -> 'Polynomial':
         return Polynomial([x + y for x, y in zip_longest(self._coefficients, other._coefficients, fillvalue=0)])
 
-    def __sub__(self, other: 'Polynomial') -> 'Polynomial':
-        return self + other
-
     def __mul__(self, other: 'Polynomial') -> 'Polynomial':
         coefficients = [0] * (self.degree + other.degree + 1)
         for i, x in enumerate(self._coefficients):
@@ -39,5 +36,5 @@ class Polynomial:
         q, r = zero, self
         while r != zero and r.degree >= other.degree:
             t = Polynomial([0] * (r.degree - other.degree) + [1])
-            q, r = q + t, r - (t * other)
+            q, r = q + t, r + (t * other)
         return q, r

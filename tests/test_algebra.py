@@ -18,9 +18,6 @@ class TestPolynomial(unittest.TestCase):
     def test_add_binary_polynomials(self):
         self.assertEqual(self.f + self.g, Polynomial([1, 1, 0, 1]))
 
-    def test_subtract_binary_polynomials(self):
-        self.assertEqual(self.f - self.g, Polynomial([1, 1, 0, 1]))
-
     def test_multiply_binary_polynomials(self):
         self.assertEqual(self.f * self.g, Polynomial([0, 1, 1, 1, 0, 1]))
 
