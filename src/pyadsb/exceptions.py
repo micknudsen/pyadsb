@@ -1,0 +1,2 @@
+class HexConversionError(Exception):
+    pass
